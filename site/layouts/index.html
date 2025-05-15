@@ -1,29 +1,21 @@
 {{ define "main" }}
 
-<section>
-  <h2>Eventos</h2>
-  <div class="eventos-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1rem">
-    {{ range site.Data.eventos_todos }}
-      <div class="evento-card"
-           onclick="openModal(this)"
-           data-title="{{ .title }}"
-           data-when="{{ .when }}"
-           data-location="{{ .location }}"
-           data-description='{{ .description | safeHTML }}'
-           data-image="{{ .image_url }}">
-        {{ if .image_url }}
-          <img src="{{ .image_url }}" alt="Imagem do evento" style="width:100%; height:auto; border-radius:4px; margin-bottom:1rem">
-        {{ end }}
-        <h3>{{ .title }}</h3>
-        <p><strong>Quando:</strong> {{ .when }}</p>
-        <p><strong>Local:</strong> {{ .location }}</p>
-        <p><strong>Descrição:</strong></p>
-        <div class="descricao" style="font-size:0.95rem">
-          {{ .description | safeHTML }}
-        </div>
-      </div>
-    {{ end }}
+<section class="eventos-grid">
+  {{ range site.Data.eventos_todos }}
+  <div class="evento-card" onclick="openModal(this)" 
+       data-title="{{ .title }}" 
+       data-when="{{ .when }}"
+       data-location="{{ .location }}" 
+       data-description="{{ .description }}"
+       data-image="{{ .image_url }}">
+    <img src="{{ .image_url }}" alt="Imagem do evento" />
+    <div class="evento-info">
+      <h3>{{ .title }}</h3>
+      <p><strong>Quando:</strong> {{ .when }}</p>
+      <p><strong>Local:</strong> <a>{{ .location }}</a></p>
+    </div>
   </div>
+  {{ end }}
 </section>
 
 <!-- MODAL -->
@@ -98,12 +90,17 @@ function openModal(card) {
   document.getElementById("modalTitle").innerText = card.dataset.title;
   document.getElementById("modalWhen").innerText = card.dataset.when;
   document.getElementById("modalLoc").innerText = card.dataset.location;
-  document.getElementById("modalDesc").innerHTML = card.dataset.description;
+  document.getElementById("modalDesc").innerHTML = formatDescription(card.dataset.description);
   document.getElementById("modalImg").src = card.dataset.image;
   document.getElementById("eventoModal").style.display = "block";
 }
 function closeModal() {
   document.getElementById("eventoModal").style.display = "none";
+}
+function formatDescription(text) {
+  return text
+    .replace(/\n/g, "<br>")
+    .replace(/(https?:\/\/[^\s]+)/g, '<a href="$1" target="_blank">$1</a>');
 }
 window.onclick = function(e) {
   if (e.target.id === "eventoModal") closeModal();
