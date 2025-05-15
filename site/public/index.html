@@ -507,8 +507,10 @@ A região de Aveiro volta a ser o epicentro do jazz com concertos, ..."
 
 <div id="eventoModal" class="modal">
   <div class="modal-content">
-    <span class="close" onclick="closeModal()">&times;</span>
-    <img id="modalImg" src="" alt="">
+    <div class="modal-img-wrapper">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <img id="modalImg" src="" alt="">
+    </div>
     <h2 id="modalTitle"></h2>
     <p><strong>Quando:</strong> <span id="modalWhen"></span></p>
     <p><strong>Local:</strong> <span id="modalLoc"></span></p>
@@ -552,22 +554,34 @@ A região de Aveiro volta a ser o epicentro do jazz com concertos, ..."
   margin: 5% auto;
   padding: 20px;
   max-width: 600px;
+  height: 80vh;
   border-radius: 8px;
   position: relative;
 }
-.modal-content img {
+.modal-img-wrapper {
+  position: relative;
+}
+.modal-img-wrapper img {
   width: 100%;
   max-height: 300px;
   object-fit: cover;
   border-radius: 4px;
   margin-bottom: 1rem;
 }
-.close {
+.modal-img-wrapper .close {
   position: absolute;
-  right: 20px;
   top: 10px;
+  right: 10px;
   font-size: 24px;
   cursor: pointer;
+  background: rgba(255,255,255,0.8);
+  border-radius: 50%;
+  padding: 0 10px;
+  z-index: 10;
+  color: #000;
+}
+.modal-content {
+  overflow-y: auto;
 }
 </style>
 
