@@ -1,12 +1,11 @@
-baseurl = "http://localhost:1313/"
-languageCode = "en-us"
-languageLang = "en"
-title = "Kaldi"
+[build]
+  publish = "public"
+  command = "hugo"
 
-# RSS, categories and tags disabled for an easy start
-# See configuration options for more details: 
-# https://gohugo.io/getting-started/configuration/#toml-configuration
-disableKinds = ["RSS", "taxonomy", "taxonomyTerm"]
+[context.production.environment]
+  HUGO_VERSION = "0.125.0"
+  HUGO_ENV = "production"
+  HUGO_ENABLEGITINFO = "true"
 
-[params]
-images = ["img/og-image.jpg"]
+[[plugins]]
+  package = "@netlify/plugin-hugo"
