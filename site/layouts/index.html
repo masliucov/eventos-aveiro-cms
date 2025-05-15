@@ -1,13 +1,18 @@
 {{ define "main" }}
 
-{{ partial "jumbotron" (dict "imageUrl" .Params.image "title" .Title "subtitle" .Params.subtitle) }}
-
-{{ partial "short-text" .Params.blurb}}
-
-{{ partial "2-up" .Params }}
-
-{{ partial "text-and-image" (dict "heading" .Params.values.heading "text" .Params.values.text "buttonText" "Read more" "buttonLink" "/values") }}
-
-{{ partial "blog" . }}
+<section>
+  <h2>Eventos</h2>
+  {{ range site.Data.eventos_todos }}
+    <div class="evento" style="border:1px solid #ccc; padding:1rem; margin:1rem 0">
+      <h3>{{ .title }}</h3>
+      <p><strong>Quando:</strong> {{ .when }}</p>
+      <p><strong>Local:</strong> {{ .location }}</p>
+      <p><strong>Descrição:</strong> {{ .description | safeHTML }}</p>
+      {{ if .image_url }}
+        <img src="{{ .image_url }}" alt="Imagem do evento" style="max-width:100%; height:auto">
+      {{ end }}
+    </div>
+  {{ end }}
+</section>
 
 {{ end }}
