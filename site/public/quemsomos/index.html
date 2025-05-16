@@ -89,17 +89,17 @@
   <div class="tc mt5">
     <h3 class="f3">Proposta de Valor</h3>
     <div class="flex flex-column flex-row-ns justify-around mt3">
-      <div class="w-100 w-third-ns pa3">
+      <div class="w-100 w-third-ns pa3 valor-card">
         <img src="/img/qs1.jpg" alt="Soluções à medida" class="mb3 grow-img" />
         <h4 class="valor-title b">Soluções à medida</h4>
         <p class="lh-copy valor-desc">Rentabilizamos as ferramentas de gestão existentes reunindo num só portal toda a informação, simples ou em gráficos, com interligação de dados.</p>
       </div>
-      <div class="w-100 w-third-ns pa3">
+      <div class="w-100 w-third-ns pa3 valor-card">
         <img src="/img/qs2.jpg" alt="Open Source" class="mb3 grow-img" />
         <h4 class="valor-title b">Open Source</h4>
         <p class="lh-copy valor-desc">Sempre procurámos responder aos desafios com tecnologias livres de licenças e custos excessivos. Por isso, tornámo-nos especialistas em soluções Open Source, sendo membros ativos da comunidade Drupal.</p>
       </div>
-      <div class="w-100 w-third-ns pa3">
+      <div class="w-100 w-third-ns pa3 valor-card">
         <img src="/img/qs3.jpg" alt="A Equipa" class="mb3 grow-img" />
         <h4 class="valor-title b">A Equipa</h4>
         <p class="lh-copy valor-desc">Uma equipa experiente, eficaz e motivada orientada para a resolução de problemas e desafios colocados pelos clientes.</p>
@@ -114,6 +114,7 @@
     height: 300px;
     width: 100%;
     object-fit: cover;
+    max-width: 100%;
   }
   .grow-img:hover {
     transform: scale(1.08);
@@ -123,6 +124,10 @@
   }
   .valor-title {
     font-size: 1.3rem;
+  }
+  .valor-card {
+    max-width: 350px;
+    margin: 0 auto;
   }
 </style>
 
