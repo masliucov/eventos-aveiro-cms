@@ -1,45 +1,41 @@
 {{ define "main" }}
-<section class="ph4 pv5 center measure-wide">
-  <div class="tc">
-    <h1 class="f2 lh-title">Quem Somos</h1>
-    <h2 class="f4 gray">A sua equipa tecnológica</h2>
-  </div>
-  <div class="flex flex-column items-center mt4">
-    <img src="/img/pictoniologo.png" alt="Pictonio" class="mb4" style="max-width: 150px">
-    <p class="lh-copy measure center">
-      Somos uma empresa de engenharia de software constituída por uma equipa experiente de engenheiros informáticos. Desenvolvemos sistemas e realizamos integrações entre as plataformas já existentes, procurando encontrar soluções eficazes e rentáveis para cada situação. <br>
-      Respostas inovadoras, simples e intuitivas direcionadas à necessidade dos diversos utilizadores, que rentabilizam os processos de gestão e de suporte à decisão.
-    </p>
-  </div>
+  <section class="bg-white ph4 pv5 center measure-wide">
+    <h1 class="f2 lh-title mb5 tc">Proposta de Valor</h1>
+    <div class="flex flex-wrap justify-center items-start">
 
-  <div class="tc mt5">
-    <h3 class="f3">Áreas de Actuação</h3>
-    <div class="flex flex-column flex-row-ns justify-around mt3">
-      <div class="pa3">Indústria</div>
-      <div class="pa3">Serviços</div>
-      <div class="pa3">Instituições Públicas</div>
-    </div>
-  </div>
+      <div class="w-100 w-30-l pa3 tc">
+        <div class="ba b--moon-gray br3 pa2 shadow-1 bg-white grow-img-container">
+          <img src="/img/qs1.jpg" alt="Soluções à medida" class="w-100 br3 mb3 grow-img" />
+          <h2 class="f4 b">Soluções à medida</h2>
+          <p class="f6">Rentabilizamos as ferramentas de gestão existentes reunindo num só portal toda a informação, simples ou em gráficos, com interligação de dados.</p>
+        </div>
+      </div>
 
-  <div class="tc mt5">
-    <h3 class="f3">Proposta de Valor</h3>
-    <div class="flex flex-column flex-row-ns justify-around mt3">
-      <div class="w-100 w-third-ns pa3">
-        <img src="/img/qs1.jpg" alt="Soluções à medida" class="mb2" />
-        <h4 class="f5 b">Soluções à medida</h4>
-        <p class="lh-copy">Rentabilizamos as ferramentas de gestão existentes reunindo num só portal toda a informação, simples ou em gráficos, com interligação de dados.</p>
+      <div class="w-100 w-30-l pa3 tc">
+        <div class="ba b--moon-gray br3 pa2 shadow-1 bg-white grow-img-container">
+          <img src="/img/qs2.jpg" alt="Open Source" class="w-100 br3 mb3 grow-img" />
+          <h2 class="f4 b">Open Source</h2>
+          <p class="f6">Sempre procurámos responder aos desafios com tecnologias livres de licenças e custos excessivos; por isso, tornámo-nos especialistas em soluções Open Source, sendo membros ativos da comunidade Drupal.</p>
+        </div>
       </div>
-      <div class="w-100 w-third-ns pa3">
-        <img src="/img/qs2.jpg" alt="Open Source" class="mb2" />
-        <h4 class="f5 b">Open Source</h4>
-        <p class="lh-copy">Sempre procurámos responder aos desafios com tecnologias livres de licenças e custos excessivos. Por isso, tornámo-nos especialistas em soluções Open Source, sendo membros ativos da comunidade Drupal.</p>
+
+      <div class="w-100 w-30-l pa3 tc">
+        <div class="ba b--moon-gray br3 pa2 shadow-1 bg-white grow-img-container">
+          <img src="/img/qs3.jpg" alt="A Equipa" class="w-100 br3 mb3 grow-img" />
+          <h2 class="f4 b">A Equipa</h2>
+          <p class="f6">Uma equipa experiente, eficaz e motivada orientada para a resolução de problemas e desafios colocados pelos clientes.</p>
+        </div>
       </div>
-      <div class="w-100 w-third-ns pa3">
-        <img src="/img/qs3.jpg" alt="A Equipa" class="mb2" />
-        <h4 class="f5 b">A Equipa</h4>
-        <p class="lh-copy">Uma equipa experiente, eficaz e motivada orientada para a resolução de problemas e desafios colocados pelos clientes.</p>
-      </div>
+
     </div>
-  </div>
-</section>
+  </section>
+
+  <style>
+    .grow-img {
+      transition: transform 0.3s ease-in-out;
+    }
+    .grow-img:hover {
+      transform: scale(1.05);
+    }
+  </style>
 {{ end }}
