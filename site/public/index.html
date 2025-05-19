@@ -534,6 +534,10 @@ A região de Aveiro volta a ser o epicentro do jazz com concertos, ..."
   overflow: hidden;
   background: white;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
 }
 .evento-card img {
   width: 100%;
@@ -542,9 +546,13 @@ A região de Aveiro volta a ser o epicentro do jazz com concertos, ..."
 }
 .evento-info {
   padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-grow: 1;
 }
 .evento-info h3 {
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: bold;
   margin-bottom: 0.5rem;
 }
@@ -552,6 +560,7 @@ A região de Aveiro volta a ser o epicentro do jazz com concertos, ..."
   margin: 0.2rem 0;
   font-size: 0.9rem;
   color: #555;
+  min-height: 1.5rem;
 }
 .evento-info h3 {
   font-weight: bold;
