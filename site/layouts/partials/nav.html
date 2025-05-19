@@ -15,15 +15,22 @@
 	</div>
 
 	<ul class="flex b grey-3 nav-menu">
-		<li><a href="/" class="pa3 no-underline db">Início</a></li>
+		<li><a href="/" class="pa3 no-underline db {{ if eq .RelPermalink "/" }}active{{ end }}">Início</a></li>
 
-		<li><a href="/quemsomos" class="pa3 no-underline db">Quem somos</a></li>
+		<li><a href="/quemsomos" class="pa3 no-underline db {{ if eq .RelPermalink "/quemsomos/" }}active{{ end }}">Quem somos</a></li>
 
-		<li><a href="/privacidade" class="pa3 no-underline db">Privacidade</a></li>
+		<li><a href="/privacidade" class="pa3 no-underline db {{ if eq .RelPermalink "/privacidade/" }}active{{ end }}">Privacidade</a></li>
 
-		<li><a href="/post" class="pa3 no-underline db">Blog</a></li>
+		<li><a href="/post" class="pa3 no-underline db {{ if eq .RelPermalink "/post/" }}active{{ end }}">Blog</a></li>
 
-		<li><a href="/contact" class="pa3 no-underline db">Contacto</a></li>
+		<li><a href="/contact" class="pa3 no-underline db {{ if eq .RelPermalink "/contact/" }}active{{ end }}">Contacto</a></li>
 	</ul>
 
 </nav>
+
+<style>
+.nav-menu a.active {
+  font-weight: bold;
+  border-bottom: 2px solid #000;
+}
+</style>
