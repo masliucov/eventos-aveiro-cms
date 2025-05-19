@@ -1,19 +1,17 @@
 ---
-title: "Contact"
+title: "Contactos"
 logo: "/img/eventosaveiro.png"
 contact_entries:
-  - heading: Location
-    text: "3153 Lynn Avenue, South San Francisco, California 94080"
-  - heading: Working hours
-    text: "Monday – Saturday: 9AM – 7PM We’re closed on Sundays"
+  - heading: Morada
+    text: "Aveiro, Portugal"
+  - heading: Horário de atendimento
+    text: "Segunda a Sexta: 9h – 18h"
 ---
 
-We’d love to get in touch with you and hear your ideas and
-questions. We strive to grow and improve constantly and your feedback
-is valuable for us.
+Quer entrar em contacto com a equipa do Eventos Aveiro?
 
-<h3 class="f4 b lh-title mb2">How can I get…?</h3>
+Estamos disponíveis para esclarecer dúvidas, receber sugestões, apoiar na divulgação de eventos ou colaborar com promotores culturais da região de Aveiro.
 
-You can also use the form below for any inquiries about coffee
-availability, monthly subscriptions and scheduling a 1-on-1 session
-with our baristas. Don’t be shy, drop us a line!
+<h3 class="f4 b lh-title mb2">Como podemos ajudar?</h3>
+
+Utilize o formulário abaixo para qualquer questão sobre submissão de eventos, parcerias, correções de informações ou outras sugestões. A sua participação é importante para manter a plataforma atualizada e útil para toda a comunidade.

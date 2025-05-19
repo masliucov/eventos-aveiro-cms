@@ -1,0 +1,5 @@
+baseURL = "/"
+languageCode = "pt-pt"
+title = "Eventos Aveiro"
+relativeURLs = true
+canonifyURLs = true
