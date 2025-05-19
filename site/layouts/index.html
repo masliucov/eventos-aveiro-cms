@@ -13,7 +13,13 @@
       <h3>{{ .title }}</h3>
       <div class="evento-meta">
         <p><strong>Quando:</strong> {{ .when }}</p>
-        <p><strong>Local:</strong> <a>{{ .location }}</a></p>
+        <p><strong>Local:</strong>
+          {{ if or (eq .location "ND") (eq .location "Vários locais") }}
+            <span>{{ .location }}</span>
+          {{ else }}
+            <a href="https://www.google.com/maps/search/{{ urlquery .location }}" target="_blank" rel="noopener noreferrer">{{ .location }}</a>
+          {{ end }}
+        </p>
       </div>
     </div>
   </div>
@@ -74,6 +80,10 @@
   font-size: 0.9rem;
   color: #555;
 }
+.evento-meta a {
+  color: inherit;
+  text-decoration: underline;
+}
 .evento-info h3 {
   font-size: 1rem;
   font-weight: bold;
@@ -132,13 +142,23 @@
 .modal-content {
   overflow-y: auto;
 }
+.modal-content a {
+  color: inherit;
+  text-decoration: underline;
+}
 </style>
 
 <script>
 function openModal(card) {
   document.getElementById("modalTitle").innerText = card.dataset.title;
   document.getElementById("modalWhen").innerText = card.dataset.when;
-  document.getElementById("modalLoc").innerText = card.dataset.location;
+  const modalLocEl = document.getElementById("modalLoc");
+  const loc = card.dataset.location;
+  if (loc === "ND" || loc === "Vários locais") {
+    modalLocEl.textContent = loc;
+  } else {
+    modalLocEl.innerHTML = `<a href="https://www.google.com/maps/search/${encodeURIComponent(loc)}" target="_blank" rel="noopener noreferrer">${loc}</a>`;
+  }
   document.getElementById("modalDesc").innerHTML = formatDescription(card.dataset.description);
   document.getElementById("modalImg").src = card.dataset.image;
   document.getElementById("eventoModal").style.display = "block";
