@@ -3,9 +3,9 @@ title: "Contactos"
 logo: "/img/eventosaveiro.png"
 contact_entries:
   - heading: Morada
-    text: "Aveiro, Portugal"
+    text: "Rua dos Marnotos, Aveiro, Portugal"
   - heading: Horário de atendimento
-    text: "Segunda a Sexta: 9h – 18h"
+    text: "Segunda a Sexta: 9:30h – 18:30h"
 ---
 
 Quer entrar em contacto com a equipa do Eventos Aveiro?
