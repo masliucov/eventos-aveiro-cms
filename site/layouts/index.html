@@ -11,8 +11,10 @@
     <img src="{{ .image_url }}" alt="Imagem do evento" />
     <div class="evento-info">
       <h3>{{ .title }}</h3>
-      <p class="quando-local"><strong>Quando:</strong> {{ .when }}</p>
-      <p class="quando-local"><strong>Local:</strong> <a>{{ .location }}</a></p>
+      <div class="evento-meta">
+        <p><strong>Quando:</strong> {{ .when }}</p>
+        <p><strong>Local:</strong> <a>{{ .location }}</a></p>
+      </div>
     </div>
   </div>
   {{ end }}
@@ -53,7 +55,7 @@
 }
 .evento-card img {
   width: 100%;
-  height: 200px;
+  height: 180px;
   object-fit: cover;
 }
 .evento-info {
@@ -61,17 +63,23 @@
   display: flex;
   flex-direction: column;
   flex-grow: 1;
-  height: 100%;
+  justify-content: space-between;
 }
-
-.evento-info p.quando-local {
+.evento-meta {
   margin-top: auto;
-  padding: 1px;
+  padding-top: 0.25rem;
+}
+.evento-meta p {
+  margin: 0.15rem 0;
+  font-size: 0.9rem;
+  color: #555;
 }
 .evento-info h3 {
   font-size: 1rem;
   font-weight: bold;
   margin-bottom: 0.5rem;
+  min-height: 3.5rem;   /* reserves space for 2‑3 lines */
+  overflow: hidden;
 }
 .evento-info p {
   margin: 0.2rem 0;
@@ -135,20 +143,43 @@ function openModal(card) {
   document.getElementById("modalImg").src = card.dataset.image;
   document.getElementById("eventoModal").style.display = "block";
 }
+
 function closeModal() {
   document.getElementById("eventoModal").style.display = "none";
 }
+
 function formatDescription(text) {
-  return text
-    .replace(/\n/g, "<br>")
-    .replace(/(https?:\/\/[^\s]+)/g, '<a href="$1" target="_blank">$1</a>');
+  if (!text) return "";
+
+  const div = document.createElement("div");
+  div.innerHTML = text;
+
+  // Garantir que links tenham target e rel corretos
+  div.querySelectorAll("a").forEach(a => {
+    a.setAttribute("target", "_blank");
+    a.setAttribute("rel", "noopener noreferrer");
+  });
+
+  // Substituir \n por <br> apenas em nós de texto
+  const walker = document.createTreeWalker(div, NodeFilter.SHOW_TEXT, null);
+  let node;
+  while ((node = walker.nextNode())) {
+    if (node.nodeValue.includes('\n')) {
+      const span = document.createElement('span');
+      span.innerHTML = node.nodeValue.replace(/\n/g, '<br>');
+      node.parentNode.replaceChild(span, node);
+    }
+  }
+
+  return div.innerHTML;
 }
+
 window.onclick = function(e) {
   if (e.target.id === "eventoModal") closeModal();
 };
+
 document.addEventListener('keydown', function(e) {
   if (e.key === "Escape") closeModal();
 });
 </script>
-
 {{ end }}

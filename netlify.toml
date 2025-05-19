@@ -14,7 +14,4 @@
   targetPort = 3000
 
 [[plugins]]
-  package = "netlify-plugin-cypress"
-
-  [plugins.inputs]
-    record = true
+  package = "@netlify/plugin-hugo"
