@@ -1,5 +1,8 @@
 {{ define "main" }}
+<!-- Skip link for better keyboard accessibility -->
+<a href="#main-content" class="skip-link">Saltar para o conteúdo principal</a>
 
+<main id="main-content" tabindex="-1">
 <section class="eventos-grid">
   {{ range site.Data.eventos_todos }}
   <div class="evento-card" onclick="openModal(this)" 
@@ -8,7 +11,7 @@
        data-location="{{ .location }}" 
        data-description="{{ .description }}"
        data-image="{{ .image_url }}">
-    <img src="{{ .image_url }}" alt="Imagem do evento" />
+    <img src="{{ if .image_url }}{{ .image_url }}{{ else }}/img/dummy.jpg{{ end }}" alt="Imagem do evento" />
     <div class="evento-info">
       <h3>{{ .title }}</h3>
       <div class="evento-meta">
@@ -146,6 +149,22 @@
   color: inherit;
   text-decoration: underline;
 }
+
+/* Skip‑link – visible on focus */
+.skip-link{
+  position:absolute;
+  top:-40px;
+  left:1rem;
+  background:#fff;
+  padding:.5rem 1rem;
+  border:1px solid #000;
+  z-index:1000;
+  text-decoration:none;
+  color:#000;
+}
+.skip-link:focus{
+  top:8px;
+}
 </style>
 
 <script>
@@ -160,7 +179,7 @@ function openModal(card) {
     modalLocEl.innerHTML = `<a href="https://www.google.com/maps/search/${encodeURIComponent(loc)}" target="_blank" rel="noopener noreferrer">${loc}</a>`;
   }
   document.getElementById("modalDesc").innerHTML = formatDescription(card.dataset.description);
-  document.getElementById("modalImg").src = card.dataset.image;
+  document.getElementById("modalImg").src = card.dataset.image && card.dataset.image.trim() !== "" ? card.dataset.image : "/img/dummy.jpg";
   document.getElementById("eventoModal").style.display = "block";
 }
 
@@ -202,4 +221,5 @@ document.addEventListener('keydown', function(e) {
   if (e.key === "Escape") closeModal();
 });
 </script>
+</main>
 {{ end }}
