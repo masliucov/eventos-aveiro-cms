@@ -1,8 +1,8 @@
 {{ define "main" }}
-<!-- Skip link for better keyboard accessibility -->
-<a href="#main-content" class="skip-link">Saltar para o conteúdo principal</a>
 
 <main id="main-content" tabindex="-1">
+<h1 class="eventos-heading">Eventos a decorrer e próximos eventos</h1>
+
 <section class="eventos-grid">
   {{ range site.Data.eventos_todos }}
   <div class="evento-card" onclick="openModal(this)" 
@@ -165,6 +165,13 @@
 .skip-link:focus{
   top:8px;
 }
+  .eventos-heading {
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+    margin: 2rem 0 1rem;
+    color: #333;
+  }
 </style>
 
 <script>
